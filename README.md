@@ -5,5 +5,8 @@ Simple Tensorflow implementation of StyleGAN (CVPR 2019 Oral)
 
 ## Will be soon
 
+## Reference
+[Moono's StyleGAN-esimator version](https://github.com/moono/stylegan-reproduced)
+
 ## Author
 [Junho Kim](http://bit.ly/jhkim_ai)
