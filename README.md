@@ -5,6 +5,25 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ## Will be soon
 
+## Usage
+```
+├── dataset
+   └── YOUR_DATASET_NAME
+       ├── 000001.jpg 
+       ├── 000002.png
+       └── ...
+```
+
+### Train
+```
+> python main.py --dataset FFHQ --phase train 
+```
+
+### Test
+```
+> python main.py --dataset FFHQ --phase test
+```
+
 ## Reference
 [Moono's StyleGAN-esimator version](https://github.com/moono/stylegan-reproduced)
 
