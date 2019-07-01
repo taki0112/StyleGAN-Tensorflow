@@ -16,7 +16,7 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ### Train
 ```
-> python main.py --dataset FFHQ --phase train 
+> python main.py --dataset FFHQ --gpu_num 4 --phase train
 ```
 
 ### Test
