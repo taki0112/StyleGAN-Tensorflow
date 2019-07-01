@@ -3,7 +3,7 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ### [Paper](https://arxiv.org/abs/1812.04948) | [Official code](https://github.com/NVlabs/stylegan) | [Video](https://www.youtube.com/watch?v=kSLJriaOumA&feature=youtu.be) | [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) 
 
-## Will be soon
+## Source code will be soon
 
 ## Usage
 ```
