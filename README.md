@@ -21,7 +21,7 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ### Test
 ```
-> python main.py --dataset FFHQ --gpu_num 1 --progressive True --phase test
+> python main.py --dataset FFHQ --progressive True --phase test
 ```
 
 ## Reference
