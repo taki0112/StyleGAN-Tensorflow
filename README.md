@@ -16,12 +16,12 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ### Train
 ```
-> python main.py --dataset FFHQ --gpu_num 4 --progressive True --phase train
+> python main.py --dataset FFHQ --img_size 1024 --gpu_num 4 --progressive True --phase train
 ```
 
 ### Test
 ```
-> python main.py --dataset FFHQ --progressive True --phase test
+> python main.py --dataset FFHQ --img_size 1024 --progressive True --phase test
 ```
 
 ## Reference
