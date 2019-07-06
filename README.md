@@ -24,6 +24,22 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 > python main.py --dataset FFHQ --img_size 1024 --progressive True --phase test
 ```
 
+### Draw
+#### figure02-uncurated
+```
+python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw uncurated
+```
+
+#### figure03-style-mixing
+```
+python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw style_mix
+```
+
+#### figure08-truncation-trick
+```
+python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw truncation_trick
+```
+
 ## Reference
 [Moono's StyleGAN-esimator version](https://github.com/moono/stylegan-reproduced)
 
