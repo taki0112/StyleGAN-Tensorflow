@@ -21,7 +21,7 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
 
 ### Test
 ```
-> python main.py --dataset FFHQ --img_size 1024 --progressive True --phase test
+> python main.py --dataset FFHQ --img_size 1024 --progressive True --batch_size 16 --phase test
 ```
 
 ### Draw
