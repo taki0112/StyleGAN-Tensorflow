@@ -1,6 +1,11 @@
 # StyleGAN-Tensorflow
 Simple Tensorflow implementation of *"A Style-Based Generator Architecture for Generative Adversarial Networks"* **(CVPR 2019 Oral)**
 
+
+<div align="center">
+  <img src=./assets/t1.png>
+</div>
+
 ### [Paper](https://arxiv.org/abs/1812.04948) | [Official code](https://github.com/NVlabs/stylegan) | [Video](https://www.youtube.com/watch?v=kSLJriaOumA&feature=youtu.be) | [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) 
 
 ## Source code will be soon
@@ -39,6 +44,32 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 ```
 python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw truncation_trick
 ```
+
+## Our Results
+### Uncurated
+<div align="center">
+  <img src=./assets/uncurated.jpg>
+</div>
+
+### Style mixing
+<div align="center">
+  <img src=./assets/style_mix.png>
+</div>
+
+### Truncation trick
+<div align="center">
+  <img src=./assets/truncation_trick.png>
+</div>
+
+### Generator loss graph
+<div align="center">
+  <img src="./assets/g_loss.png">
+</div>
+
+### Discriminator loss graph
+<div align="center">
+  <img src="./assets/d_loss.png">
+</div>
 
 ## Reference
 [Moono's StyleGAN-esimator version](https://github.com/moono/stylegan-reproduced)
