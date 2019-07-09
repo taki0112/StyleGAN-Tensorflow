@@ -53,7 +53,7 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 
 ### Style mixing
 <div align="center">
-  <img src=./assets/style_mix_black.png>
+  <img src=./assets/style_mix_glod_bold.png>
 </div>
 
 ### Truncation trick
