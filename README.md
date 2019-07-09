@@ -6,7 +6,7 @@ Simple Tensorflow implementation of *"A Style-Based Generator Architecture for G
   <img src=./assets/stylegan-teaser.png>
 </div>
 
-### [Paper](https://arxiv.org/abs/1812.04948) | [Official code](https://github.com/NVlabs/stylegan) | [Video](https://www.youtube.com/watch?v=kSLJriaOumA&feature=youtu.be) | [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) 
+### [Official code](https://github.com/NVlabs/stylegan) | [Paper](https://arxiv.org/abs/1812.04948) | [Video](https://www.youtube.com/watch?v=kSLJriaOumA&feature=youtu.be) | [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) 
 
 ## Source code will be soon
 
