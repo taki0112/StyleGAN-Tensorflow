@@ -48,7 +48,7 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 ## Our Results
 ### Uncurated
 <div align="center">
-  <img src=./assets/uncurated.jpg width=800px height=1000px>
+  <img src=./assets/uncurated.jpg width=600px height=750px>
 </div>
 
 ### Style mixing
