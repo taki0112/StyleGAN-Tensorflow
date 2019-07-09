@@ -45,7 +45,7 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw truncation_trick
 ```
 
-## Our Results
+## Our Results (1024x1024)
 ### Uncurated
 <div align="center">
   <img src=./assets/uncurated.jpg width=600px height=750px>
