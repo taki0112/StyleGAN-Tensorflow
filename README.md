@@ -1,5 +1,5 @@
 # StyleGAN-Tensorflow
-Simple Tensorflow implementation of *"A Style-Based Generator Architecture for Generative Adversarial Networks"* **(CVPR 2019 Oral)**
+**Simple & Intuitive** Tensorflow implementation of *"A Style-Based Generator Architecture for Generative Adversarial Networks"* **(CVPR 2019 Oral)**
 
 
 <div align="center">
