@@ -7,6 +7,7 @@
 </div>
 
 ### [Official code](https://github.com/NVlabs/stylegan) | [Paper](https://arxiv.org/abs/1812.04948) | [Video](https://www.youtube.com/watch?v=kSLJriaOumA&feature=youtu.be) | [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) 
+### [TF Estimator version](https://github.com/moono/stylegan-reproduced)
 
 ## Source code will be soon
 
@@ -77,9 +78,6 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 <div align="center">
   <img src="./assets/d_loss.png">
 </div>
-
-## Reference
-[Moono's StyleGAN-esimator version](https://github.com/moono/stylegan-reproduced)
 
 ## Author
 [Junho Kim](http://bit.ly/jhkim_ai)
