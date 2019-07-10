@@ -45,6 +45,15 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --draw truncation_trick
 ```
 
+## Architecture
+![A_module](./assets/A_module.png)
+![B_module](./assets/B_module.png)
+
+<div align="center">
+  <img src=./assets/A_module.png>
+  <img src=./assets/B_module.png>
+</div>
+
 ## Our Results (1024x1024)
 * Training time: **2 days 14 hours** with **V100 * 4**
 ### Uncurated
