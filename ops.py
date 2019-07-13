@@ -630,11 +630,11 @@ def get_batch_sizes(gpu_num) :
 
     return x
 
-def get_end_iteration(iter, max_iter, do_trans, res_list) :
+def get_end_iteration(iter, max_iter, do_trans, res_list, start_res) :
 
     end_iter = max_iter
 
-    for res in res_list :
+    for res in res_list[res_list.index(start_res):-1] :
         if do_trans[res] :
             end_iter -= iter
         else :

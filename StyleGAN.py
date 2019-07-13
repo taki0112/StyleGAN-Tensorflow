@@ -52,7 +52,7 @@ class StyleGAN(object):
         self.train_with_trans = {4: False, 8: False, 16: True, 32: True, 64: True, 128: True, 256: True, 512: True, 1024: True}
         self.batch_sizes = get_batch_sizes(self.gpu_num)
 
-        self.end_iteration = get_end_iteration(self.iteration, self.max_iteration, self.train_with_trans, self.resolutions)
+        self.end_iteration = get_end_iteration(self.iteration, self.max_iteration, self.train_with_trans, self.resolutions, self.start_res)
 
         self.g_learning_rates = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
         self.d_learning_rates = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
