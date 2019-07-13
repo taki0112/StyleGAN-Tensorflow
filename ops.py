@@ -629,3 +629,15 @@ def get_batch_sizes(gpu_num) :
         x = OrderedDict([(4, 32), (8, 16), (16, 8), (32, 4), (64, 2), (128, 2), (256, 2), (512, 2), (1024, 2)])
 
     return x
+
+def get_end_iteration(iter, max_iter, do_trans, res_list) :
+
+    end_iter = max_iter
+
+    for res in res_list :
+        if do_trans[res] :
+            end_iter -= iter
+        else :
+            end_iter -= iter // 2
+
+    return end_iter

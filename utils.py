@@ -96,12 +96,23 @@ def show_all_variables():
 def str2bool(x):
     return x.lower() in ('true')
 
-def get_checkpoint_res(checkpoint_counter, batch_sizes, iteration, start_res, gpu_num) :
-    batch_sizes_value = list(batch_sizes.values())
+def get_checkpoint_res(checkpoint_counter, batch_sizes, iteration, start_res, end_res, gpu_num, end_iteration, do_trans) :
     batch_sizes_key = list(batch_sizes.keys())
 
     start_index = batch_sizes_key.index(start_res)
-    iteration_per_res = [iteration // (x * gpu_num) for x in batch_sizes_value]
+
+    iteration_per_res = []
+
+    for res, bs in batch_sizes.items() :
+
+        if do_trans[res] :
+            if res == end_res :
+                iteration_per_res.append(end_iteration // (bs * gpu_num))
+            else :
+                iteration_per_res.append(iteration // (bs * gpu_num))
+        else :
+            iteration_per_res.append((iteration // 2) // (bs * gpu_num))
+
     iteration_per_res = iteration_per_res[start_index:]
 
     for i in range(len(iteration_per_res)) :

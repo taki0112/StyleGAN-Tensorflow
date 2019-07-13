@@ -19,7 +19,8 @@ class StyleGAN(object):
         self.result_dir = args.result_dir
         self.log_dir = args.log_dir
 
-        self.iteration = args.iteration
+        self.iteration = args.iteration * 10000
+        self.max_iteration = args.max_iteration * 10000
 
         self.batch_size = args.batch_size
         self.img_size = args.img_size
@@ -50,6 +51,8 @@ class StyleGAN(object):
 
         self.train_with_trans = {4: False, 8: False, 16: True, 32: True, 64: True, 128: True, 256: True, 512: True, 1024: True}
         self.batch_sizes = get_batch_sizes(self.gpu_num)
+
+        self.end_iteration = get_end_iteration(self.iteration, self.max_iteration, self.train_with_trans, self.resolutions)
 
         self.g_learning_rates = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
         self.d_learning_rates = {128: 0.0015, 256: 0.002, 512: 0.003, 1024: 0.003}
@@ -298,7 +301,7 @@ class StyleGAN(object):
                 alpha_const, zero_constant = get_alpha_const(self.iteration // 2, batch_size * self.gpu_num, global_step)
 
                 # smooth transition variable
-                do_train_trans = self.train_with_trans.get(res, True)
+                do_train_trans = self.train_with_trans[res]
 
                 alpha = tf.get_variable('alpha_{}'.format(res), shape=[], dtype=tf.float32,
                                         initializer=tf.initializers.ones() if do_train_trans else tf.initializers.zeros(),
@@ -406,7 +409,9 @@ class StyleGAN(object):
         could_load, checkpoint_counter = self.load(self.checkpoint_dir)
         if could_load:
 
-            start_res_idx = get_checkpoint_res(checkpoint_counter, self.batch_sizes, self.iteration, self.start_res, self.gpu_num)
+            start_res_idx = get_checkpoint_res(checkpoint_counter, self.batch_sizes, self.iteration,
+                                               self.start_res, self.img_size, self.gpu_num,
+                                               self.end_iteration, self.train_with_trans)
 
             if not self.progressive :
                 start_res_idx = 0
@@ -416,10 +421,20 @@ class StyleGAN(object):
             for res_idx in range(self.resolutions.index(self.start_res), start_res_idx) :
                 res = self.resolutions[res_idx]
                 batch_size_per_res = self.batch_sizes.get(res, self.batch_size_base) * self.gpu_num
-                if start_batch_idx - (self.iteration // batch_size_per_res) < 0 :
-                    break
+
+                if self.train_with_trans[res]:
+                    if res == self.img_size :
+                        iteration = self.end_iteration
+                    else :
+                        iteration = self.iteration
                 else :
-                    start_batch_idx = start_batch_idx - (self.iteration // batch_size_per_res)
+                    iteration = self.iteration // 2
+
+                if start_batch_idx - (iteration // batch_size_per_res) < 0:
+                    break
+                else:
+                    start_batch_idx = start_batch_idx - (iteration // batch_size_per_res)
+
 
             counter = checkpoint_counter
             print(" [*] Load SUCCESS")
@@ -437,7 +452,20 @@ class StyleGAN(object):
             current_res = self.resolutions[current_res_num]
             batch_size_per_res = self.batch_sizes.get(current_res, self.batch_size_base) * self.gpu_num
 
-            for idx in range(start_batch_idx, self.iteration // batch_size_per_res):
+            if self.progressive :
+                if self.train_with_trans[current_res] :
+
+                    if current_res == self.img_size :
+                        current_iter = self.end_iteration
+                    else :
+                        current_iter = self.iteration // batch_size_per_res
+                else :
+                    current_iter = (self.iteration // 2) // batch_size_per_res
+
+            else :
+                current_iter = self.end_iteration
+
+            for idx in range(start_batch_idx, current_iter):
 
                 # update D network
                 _, summary_d_per_res, d_loss = self.sess.run([self.discriminator_optim[current_res],
@@ -459,7 +487,7 @@ class StyleGAN(object):
                 counter += 1
 
                 print("Current res: [%4d] [%6d/%6d] time: %4.4f, d_loss: %.8f, g_loss: %.8f" \
-                      % (current_res, idx, self.iteration // batch_size_per_res, time.time() - start_time, d_loss, g_loss))
+                      % (current_res, idx, current_iter, time.time() - start_time, d_loss, g_loss))
 
                 if np.mod(idx + 1, self.print_freq[current_res]) == 0:
                     samples = self.sess.run(self.train_fake_images[current_res])
