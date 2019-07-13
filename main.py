@@ -11,7 +11,7 @@ def parse_args():
     parser.add_argument('--dataset', type=str, default='FFHQ', help='The dataset name what you want to generate')
 
     parser.add_argument('--iteration', type=int, default=120, help='The number of images used in the train phase')
-    parser.add_argument('--max_iteration', type=int, default=2500, help='The number of images for last resolution')
+    parser.add_argument('--max_iteration', type=int, default=2500, help='The total number of images')
 
     parser.add_argument('--batch_size', type=int, default=1, help='The size of batch in the test phase')
     parser.add_argument('--gpu_num', type=int, default=1, help='The number of gpu')
