@@ -54,8 +54,8 @@ python main.py --dataset FFHQ --img_size 1024 --progressive True --phase draw --
 
 ## Our Results (1024x1024)
 * Training time: **2 days 14 hours** with **V100 * 4**
-* **`max_iteration`** = **120**
-  * **`Official code`** = **900**
+* **`max_iteration`** = **900**
+  * **`Official code`** = **2500**
 
 ### Uncurated
 <div align="center">
