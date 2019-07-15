@@ -456,7 +456,7 @@ class StyleGAN(object):
                 if self.train_with_trans[current_res] :
 
                     if current_res == self.img_size :
-                        current_iter = self.end_iteration
+                        current_iter = self.end_iteration // batch_size_per_res
                     else :
                         current_iter = self.iteration // batch_size_per_res
                 else :
