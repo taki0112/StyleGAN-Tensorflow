@@ -11,6 +11,9 @@
 ## Other implementation
 ### [TF Estimator version](https://github.com/moono/stylegan-reproduced)
 
+## Pretrained model
+### [Checkpoint](https://drive.google.com/file/d/1hLsESJujqKDKrgbNE8Nn8LAWCwglAHY3/view?usp=sharing)
+
 ## Usage
 ```
 ├── dataset
